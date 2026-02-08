@@ -1,240 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Robot Destruction - Coming Soon">
-    <title>Robot Destruction - Coming Soon</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Google tag (gtag.js) -->
+  <meta charset="utf-8" />
+  <title>
+    Robots that redesign themselves through kinematic self-destruction
+  </title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            overflow: hidden;
-        }
+  <meta content="" name="description" />
+  <meta content="Robots that redesign themselves through kinematic self-destruction" property="og:title" />
+  <meta content="Robots that redesign themselves through kinematic self-destruction" property="og:description" />
+  <meta content="Robots that redesign themselves through kinematic self-destruction" property="twitter:title" />
+  <meta content="Robots that redesign themselves through kinematic self-destruction" property="twitter:description" />
+  <meta property="og:type" content="website" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-        .container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 800px;
-            animation: fadeIn 1.5s ease-in;
-        }
+  <link href="assets/favicon.svg" rel="shortcut icon" type="image/x-icon" />
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    WebFont.load({
+      google: {
+        families: [
+          "Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic",
+        ],
+      },
+    });
+  </script>
+  <!--[if lt IE 9
+      ]><script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
+        type="text/javascript"
+      ></script
+    ><![endif]-->
 
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: pulse 2s infinite;
-        }
+  <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+    type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css" />
+  <link href="./css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
 
-        h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+  <!-- Prismjs for citation -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bibtex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
-        .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css" rel="stylesheet" />
 
-        .coming-soon {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+  <!-- REMOVE MUJOCO -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.6.2/dist/es-module-shims.js"
+    ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./three/build/three.module.js",
+          "lil-gui": "./three/examples/jsm/libs/lil-gui.module.min.js",
+          "orbit-controls": "./three/examples/jsm/controls/OrbitControls.js"
         }
+      }
+    </script>
+    <script defer type="module" src="./js/main.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        // customised options
+        // • auto-render specific keys, e.g.:
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true },
+        ],
+        // • rendering keys, e.g.:
+        throwOnError: false,
+      });
+    });
+  </script>
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
 
-        .description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            opacity: 0.85;
-            margin-bottom: 2rem;
-        }
-
-        .dots {
-            display: inline-flex;
-            gap: 0.5rem;
-            margin-left: 0.5rem;
-        }
-
-        .dot {
-            width: 0.5rem;
-            height: 0.5rem;
-            background: #ffffff;
-            border-radius: 50%;
-            animation: blink 1.4s infinite;
-        }
-
-        .dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes blink {
-            0%, 80%, 100% {
-                opacity: 0;
-            }
-            40% {
-                opacity: 1;
-            }
-        }
-
-        .footer {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .coming-soon {
-                font-size: 1.8rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .logo {
-                font-size: 3rem;
-            }
-        }
-
-        /* Floating particles effect */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 20s infinite;
-        }
-
-        .particle:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .particle:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            left: 80%;
-            animation-delay: 3s;
-        }
-
-        .particle:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            left: 50%;
-            animation-delay: 6s;
-        }
-
-        .particle:nth-child(4) {
-            width: 50px;
-            height: 50px;
-            left: 30%;
-            animation-delay: 9s;
-        }
-
-        .particle:nth-child(5) {
-            width: 70px;
-            height: 70px;
-            left: 70%;
-            animation-delay: 12s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 10);
+    });
+  </script>
 </head>
+
 <body>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+  <header id="preface-section">
+    <video autoplay muted loop playsinline preload="none" poster="assets/intro-placeholder.jpg" id="preface-video">
+      <source src="assets/fastout.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+      <h1 class="preface-title">
+        Robots that redesign themselves <br />
+        through kinematic self-destruction
+      </h1>
     </div>
-    
-    <div class="container">
-        <div class="logo">🤖</div>
-        <h1>Robot Destruction</h1>
-        <div class="coming-soon">
-            Coming Soon
-            <span class="dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </span>
-        </div>
-        <p class="description">
-            Something exciting is in the works. We're building something awesome and can't wait to share it with you!
-        </p>
-        <div class="footer">
-            Stay tuned for updates
-        </div>
+  </header>
+  <div class="fade-transition"></div>
+  <div style="height: 5em"></div>
+  <main id="main-content">
+    <h1 style="font-family: Lato; margin: 0.25em 0; font-size: 2.6em;">
+      Robots that redesign themselves <br />
+      through kinematic self-destruction
+    </h1>
+
+    <div style="height: 1.8em"></div>
+
+    <!-- Authors -->
+    <div id="authors">
+      <span>Chen Yu</span>
+      <span>Sam Kriegman</span>
     </div>
+
+    <div style="height: 1em"></div>
+
+    <!-- Affiliations -->
+    <div id="affiliations">
+      <div>
+        Center for Robotics and Biosystems, Northwestern
+        University
+      </div>
+    </div>
+    <div style="height: 1em"></div>
+
+    <!-- Links -->
+    <div style="height: 1em"></div>
+
+
+    <div id="links">
+      <div class="split-cta">
+        <a class="split-cta__half split-cta__half--arxiv" href="#" onclick="event.preventDefault(); alert('Coming soon');">
+          <span class="split-cta__icon"><i class="ti ti-article"></i></span>
+          <span class="split-cta__label">arXiv</span>
+        </a>
+        <a class="split-cta__half split-cta__half--code" href="#" onclick="event.preventDefault(); alert('Coming soon');">
+          <span class="split-cta__icon"><i class="ti ti-brand-github"></i></span>
+          <span class="split-cta__label">Code</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- tldr -->
+    <!-- <p class="tldr">
+        <strong>TLDR</strong>
+        <em>
+          By combining different arrangements of minimal yet athletic agents
+          into a unified body, a diversity of agile legged machines were
+          realized.
+        </em>
+      </p> -->
+
+    <!-- <section class="text-card significance">
+      <h2>Significance</h2>
+      <p style="text-align: justify">
+        All legged robots deployed “in the wild” to date were given a body plan that was predefined by human designers
+        and could not be redefined in situ. The manual and permanent nature of this process has resulted in very few
+        species of agile terrestrial robots beyond familiar four-limbed forms. Here we introduce highly athletic modular
+        building blocks and show how they enable the automatic design and rapid assembly of novel agile robots that can
+        “hit the ground running” in unstructured outdoor environments. This suggests that others may adopt this approach
+        to synthesize and study adaptive behaviors in the field using morphologies that emerge from the demands of the
+        environment rather than prior assumptions.
+      </p>
+    </section> -->
+    <div style="height: 3em"></div>
+
+    <section class="text-card">
+      <h2>Abstract</h2>
+      <p style="text-align: justify">
+        Every robot built to date was predesigned by an
+        external process, prior to deployment. Here we show a robot
+        that actively participates in its own design during its lifetime.
+        Starting from a randomly assembled body, and using only
+        proprioceptive feedback, the robot dynamically “sculpts” itself
+        into a new design through kinematic self-destruction: identifying
+        redundant links within its body that inhibit its locomotion,
+        and then thrashing those links against the surface until they
+        break at the joint and fall off the body. It does so using a
+        single autoregressive sequence model, a universal controller that
+        learns in simulation when and how to simplify a robot's body
+        through self-destruction and then adaptively controls the reduced
+        morphology. The optimized policy successfully transfers to reality
+        and generalizes to previously unseen kinematic trees, generating
+        forward locomotion that is more effective than otherwise equivalent
+        policies that randomly remove links or cannot remove any.
+        This suggests that self-designing robots may be more successful
+        than predesigned robots in some cases, and that kinematic
+        self-destruction, though reductive and irreversible, could provide a
+        general adaptive strategy for a wide range of robots. 
+      </p>
+    </section>
+
+    <!-- REMOVE MUJOCO -->
+    <!-- <section>
+        <h2>Mojoco</h2>
+        <div id="mujoco-container">
+          <div id="mujoco">
+            <div id="mujoco-controls"></div>
+          </div>
+        </div>
+      </section> -->
+
+    <section class="video-section">
+      <h2>Videos</h2>
+      <div class="media-card">
+        <!-- Video 1 -->
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/-L8mlDEQong?si=moQclO4uGV4hzL2b" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <figcaption>
+          <b>Kinematic self-destruction.</b> Starting from a randomly assembled body, and using only proprioceptive feedback, the robot dynamically “sculpts” itself into a new design through kinematic self-destruction.
+        </figcaption>
+      </div>
+
+      <div style="height: 3em"></div>
+
+
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <h2>Citation</h2>
+      <p class="footer-note">
+        Please use the following entry to cite this work:
+      </p>
+      <pre class="code-snippet code-snippet--footer"><code>C Yu and S Kriegman (in press).
+"Robots that redesign themselves through kinematic self-destruction"</code></pre>
+    </div>
+  </footer>
+  <script>
+    const significanceCard = document.querySelector(".text-card.significance");
+    if (significanceCard) {
+      const updateGradient = (event) => {
+        const rect = significanceCard.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        significanceCard.style.setProperty("--mx", `${x}%`);
+        significanceCard.style.setProperty("--my", `${y}%`);
+      };
+
+      significanceCard.addEventListener("pointermove", updateGradient);
+      significanceCard.addEventListener("pointerleave", () => {
+        significanceCard.style.setProperty("--mx", "50%");
+        significanceCard.style.setProperty("--my", "35%");
+      });
+    }
+  </script>
+  <script>
+    window.addEventListener("scroll", function () {
+      const preface = document.getElementById("video-preface");
+      if (
+        window.scrollY > window.innerHeight * 0.1 &&
+        !preface.classList.contains("hidden")
+      ) {
+        preface.classList.add("hidden");
+        setTimeout(() => {
+          main.scrollIntoView({ behavior: "smooth" });
+        });
+      }
+
+      if (window.scrollY < 10 && preface.classList.contains("hidden")) {
+        preface.classList.remove("hidden");
+      }
+    });
+  </script>
 </body>
+
 </html>
